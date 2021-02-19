@@ -28,7 +28,11 @@ class Clock extends React.Component {
     const message = date.toLocaleTimeString().split(':');
     const hour_hand = parseInt(message[0]);
     const minute_hand = parseInt(message[1]);
+    let second_hand = message[2].split(' ');
+    second_hand = parseInt(second_hand[0]);
     const x = hour_hand*30 + minute_hand*0.5;
+    this.setState({minute_angle:"rotate("+minute_hand*(6)+"deg)"})
+    this.setState({second_angle = "rotate("+second_hand*(6)+"deg)"});
     this.setState({hour_angle : "rotate("+x+"deg)"})
   }
 
