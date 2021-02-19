@@ -31,7 +31,7 @@ class Clock extends React.Component {
     return (
     <div class = "outer_radius">
       <div class = "inner_radius">
-        <div id="hour"></div>
+        <Hour />
         <div id="minute"></div>
         <div id="second"></div>
         <div id= "dot"></div>
