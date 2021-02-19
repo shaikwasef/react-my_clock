@@ -1,7 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import "./style.css";
+
+class Second extends React.Component {
+  render(){
+    return (
+      <div id="second" style ={{transform : this.props.second_angle}}></div>
+    );
+  }
+}
+
+class Minute extends React.Component {
+  render(){
+    return (
+      <div id="minute" style ={{transform : this.props.minute_angle}}></div>
+    );
+  }
+}
 
 class Hour extends React.Component {
   render(){
@@ -9,7 +24,6 @@ class Hour extends React.Component {
       <div id="hour" style ={{transform : this.props.hour_angle}}></div>
     );
   }
-
 }
 class Clock extends React.Component {
   constructor(props){
@@ -41,8 +55,8 @@ class Clock extends React.Component {
     <div className = "outer_radius">
       <div className = "inner_radius">
         <Hour hour_angle = {this.state.hour_angle} />
-        <div id="minute"></div>
-        <div id="second"></div>
+        <Minute minute_angle = {this.state.minute_angle}/>
+        <Second second_angle = {this.state.second_angle}/>
         <div id= "dot"></div>
       </div>
   </div>
