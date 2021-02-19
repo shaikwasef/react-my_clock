@@ -28,17 +28,17 @@ class Hour extends React.Component {
 class Clock extends React.Component {
   constructor(props){
     super(props);
-    this.state = {hour_angle : '' , minute_angle : '' , second_angle : '' };
+    this.state = {hour_angle : '' , minute_angle : '' , second_angle : '' , date : new Date() };
     this.componentWillMount = this.componentWillMount.bind(this);
     this.tick = this.tick.bind(this);
   }
 
   componentWillMount(){
-    this.timerId = setInterval(this.tick,1000);
+    this.timerID = setInterval(this.tick, 1000);
   }
 
   tick(){
-    const date = this.props.date ;
+    const date = this.state.date ;
     const message = date.toLocaleTimeString().split(':');
     const hour_hand = parseInt(message[0]);
     const minute_hand = parseInt(message[1]);
@@ -48,9 +48,10 @@ class Clock extends React.Component {
     this.setState({minute_angle:"rotate("+minute_hand*(6)+"deg)"})
     this.setState({second_angle : "rotate("+second_hand*(6)+"deg)"});
     this.setState({hour_angle : "rotate("+x+"deg)"})
+    this.setState({date : new Date()});
   }
 
-  render() {
+  render(){
     return (
     <div className = "outer_radius">
       <div className = "inner_radius">
@@ -64,4 +65,4 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(<Clock date = {new Date()} />, document.getElementById("root"));
+ReactDOM.render(<Clock />, document.getElementById("root"));
