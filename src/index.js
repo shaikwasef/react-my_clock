@@ -25,12 +25,18 @@ class Hour extends React.Component {
     this.setState ( {hour_angle : "rotate("+x+"deg)"})
   }
 
+  render(){
+    return (
+      <div id="hour" style ={{transform : this.state.hour_angle}}></div>
+    );
+  }
+
 }
 class Clock extends React.Component {
   render() {
     return (
-    <div class = "outer_radius">
-      <div class = "inner_radius">
+    <div className = "outer_radius">
+      <div className = "inner_radius">
         <Hour />
         <div id="minute"></div>
         <div id="second"></div>
